@@ -417,7 +417,7 @@ export default function App() {
                   {displayProducts.slice(0, 300).map((p, i) => (
                     <div key={p.id} style={{
                       display: "grid",
-                      gridTemplateColumns: "130px 80px 1fr",
+                      gridTemplateColumns: "80px 130px 80px 1fr",
                       padding: "9px 16px",
                       borderBottom: "1px solid #0f1e30",
                       background: i % 2 === 0 ? "transparent" : "#071218",
@@ -428,7 +428,23 @@ export default function App() {
                       onMouseEnter={e => e.currentTarget.style.background = "#1e2a3a"}
                       onMouseLeave={e => e.currentTarget.style.background = i % 2 === 0 ? "transparent" : "#071218"}
                     >
-                      <div style={{ color: "#00d4aa", fontWeight: "bold", letterSpacing: "1px" }}>{p.id}</div>
+                     {/* 产品图片 */}
+<img 
+  src={`/images/products/${p.id}.png`} 
+  alt={p.name}
+  style={{ 
+    width: '60px', 
+    height: '60px', 
+    objectFit: 'cover',
+    borderRadius: '4px',
+    marginRight: '12px',
+    border: '1px solid #1e3a5f'
+  }}
+  onError={(e) => {
+    // 图片加载失败时隐藏
+    e.target.style.display = 'none';
+  }}
+/> <div style={{ color: "#00d4aa", fontWeight: "bold", letterSpacing: "1px" }}>{p.id}</div>
                       <div>
                         <span style={{
                           background: CATEGORY_COLORS[p.category] + "22",
