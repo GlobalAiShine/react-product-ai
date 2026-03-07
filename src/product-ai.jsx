@@ -477,5 +477,4 @@ export default function App() {
     </div>
   );
 }
-第一个框（Commit message）：添加产品图片显示
-第二个框（Extended description）：可选，可以不填
+
